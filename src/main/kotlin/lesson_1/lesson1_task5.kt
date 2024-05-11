@@ -2,13 +2,11 @@ package org.example.lesson_1
 
 fun main(){
     val seconds: Short = 6480
-    /*так сам котлин предложил исправить, хотя я не пойму почему он не может просто посчитать.
-   Значение ответа 108 что <128 и >-128, так что должно быть все ок*/
-    val minutes: Byte = (seconds / 60).toByte()
-    val hours: Byte = (minutes / 60).toByte()
-    val percentOfSeconds: Byte = (seconds % 60).toByte()
-    val percentOfMinutes: Byte = (minutes % 60).toByte()
+    val secInMinute = 60
+    val minutes = seconds / secInMinute
+    val hours = minutes / secInMinute
+    val percentOfSeconds = seconds % secInMinute
+    val percentOfMinutes = minutes % secInMinute
 
-    print("0$hours:$percentOfMinutes:0$percentOfSeconds")
-
+    println("%02d:%02d:%02d".format(hours, percentOfMinutes, percentOfSeconds))
 }
